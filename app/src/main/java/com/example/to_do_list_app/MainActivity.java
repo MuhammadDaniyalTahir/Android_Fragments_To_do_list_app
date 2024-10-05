@@ -2,6 +2,8 @@ package com.example.to_do_list_app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements TaskInputFragment
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d("Main Activity", "onCreate function");
         // Initialize RecyclerView
         taskRecyclerView = findViewById(R.id.taskRecyclerView);
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -38,10 +40,12 @@ public class MainActivity extends AppCompatActivity implements TaskInputFragment
 
     // Method to open Task Input Fragment
     private void openTaskInputFragment() {
+        Log.d("FAB", "FAB Clicked");
         FragmentManager fragmentManager = getSupportFragmentManager();
         TaskInputFragment taskInputFragment = new TaskInputFragment();
         taskInputFragment.setTaskSavedListener(this);
         taskInputFragment.show(fragmentManager, "taskInput");
+        Log.d("Main Activity", "Input fragment has been displayed");
 
     }
 
@@ -53,5 +57,6 @@ public class MainActivity extends AppCompatActivity implements TaskInputFragment
 
         // Notify the adapter of the change
         taskAdapter.notifyDataSetChanged();
+        Log.d("Main Activity", "New Task has been added");
     }
 }
