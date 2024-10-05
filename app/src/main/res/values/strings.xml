@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">To_Do_list_App</string>
+    <string name="add_task">Add new task</string>
+    <string name="task_placeholder">Task</string>
+    <string name="task_name_hint">Enter task name</string>
+    <string name="task_description_hint">Enter task description</string>
+    <string name="save_task">Save task</string>
 </resources>
